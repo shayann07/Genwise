@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.agegroupapp-mergeDebugResources-32:/layout/activity_main.xml",
+        "source": "com.example.agegroupapp-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\shaya\\.gradle\\daemon\\8.11.1\\com.example.agegroupapp-mergeDebugResources-32:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\shaya\\.gradle\\daemon\\8.11.1\\com.example.agegroupapp-main-35:\\layout\\activity_main.xml"
+    }
+]
