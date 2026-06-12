@@ -1,63 +1,72 @@
 # Genwise
 
-Genwise is a fun and educational Android app that effortlessly discovers which generation you belong to, based on your name and age.  Whether you’re curious about whether you’re Gen Z, a Millennial, or a Baby Boomer, Genwise takes your input and quickly tells you where you fit on the generational timeline.
+A single-screen Kotlin Android app that takes a name and an age and labels the person as Child, Teenager, Adult, or Senior.
+
+## Status
+
+Educational/portfolio sample. One activity, one layout, one bucketing rule. No persistence, networking, or external services.
 
 ## Features
 
-- **Simple input form** – enter your name and age and tap **Discover** to see your generational cohort.
-- **Instant generation calculation** – calculates the generation category (e.g., Gen Z, Millennial, Gen X, Baby Boomer) based on your birth year.
-- **Friendly UI** – clean, colourful interface with clear typography and intuitive navigation.
-- **Lightweight & fast** – written in native Android (Kotlin/Java) with minimal dependencies and a small footprint.
-- **Educational** – learn about the different generations and how they are defined by birth years.
+- Single form with a name field and a numeric age field.
+- Tap **Submit**, or press the keyboard **Done** action on the age field, to evaluate the input.
+- Validates that the name is non-empty and the age parses to a non-negative integer; otherwise shows a toast.
+- Reveals two result lines: a "Hello, {name}!" greeting and a category label.
+- Categorizes age into `Child` (<13), `Teenager` (13–19), `Adult` (20–59), or `Senior` (60+).
+- Result texts start hidden and become visible after a successful submission.
+- Clears focus on both inputs after evaluating.
 
-## Tech stack
+## Tech Stack
 
-- **Languages:** Kotlin & Java
-- **Architecture:** Model–View–ViewModel (MVVM)
-- **UI:** Android Views with Material Design components
-- **Data layer:** Simple in‑memory logic (no external database needed)
+- **Language:** Kotlin (JVM target 11).
+- **UI:** Android Views with AppCompat, Material Components, and ConstraintLayout.
+- **Build:** Android Gradle Plugin via `libs.versions.toml`; `compileSdk 35`, `minSdk 24`, `targetSdk 35`.
+- **View Binding** enabled (`buildFeatures.viewBinding = true`).
 
-## Getting started
+## Project Structure
 
-To run Genwise locally:
+```
+app/
+├── build.gradle.kts
+└── src/main/
+    ├── AndroidManifest.xml         // single MainActivity launcher; no permissions
+    ├── java/com/example/agegroupapp/MainActivity.kt
+    └── res/
+        ├── layout/activity_main.xml
+        ├── color/text_input_stroke.xml
+        └── values/, drawable/, mipmap-*/, xml/
+```
 
-1. **Clone the repository**
+The application id and namespace are `com.example.agegroupapp`; the displayed app label uses the `app_name` resource and the `Theme.AgeGroupApp` style.
 
-   ```bash
-   git clone https://github.com/shayann07/Genwise.git
-   cd Genwise
-   ```
+## Getting Started
 
-2. **Open with Android Studio**
+### Prerequisites
 
-   - Use the latest stable version of **Android Studio** (e.g., Flamingo or later).
-   - Let Gradle sync and download dependencies.
+- Android Studio compatible with the wrapper version in `gradle/wrapper`.
+- JDK 11.
+- Android SDK with `compileSdk 35` and `minSdk 24`.
 
-3. **Run on a device or emulator**
+### Run
 
-   - Connect an Android device or start an emulator.
-   - Click **Run** to build and deploy Genwise.
+```bash
+git clone https://github.com/shayann07/Genwise.git
+```
 
-## Contributing
+Open the project in Android Studio, let Gradle sync, then run the `app` configuration on a device or emulator.
 
-Contributions are welcome!  Feel free to open issues or submit pull requests to add new features (such as generational trivia or history), improve the UI, or refactor the code.
+### Build
 
-## License
+```bash
+./gradlew :app:assembleDebug
+```
 
-This project is licensed under the [MIT License](LICENSE).
+The repository tracks a `local.properties`; replace its `sdk.dir` value with the path on your machine before building.
 
-<!-- gitpulse:contribution index="1" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="2" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="3" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="4" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="5" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="6" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="7" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="8" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="9" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="10" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="11" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="12" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="13" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="14" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="15" timestamp="2026-05-04" -->
+## Limitations
+
+- Despite the project name, the app does **not** classify users into generational cohorts (Gen Z, Millennial, Boomer, etc.). It buckets a raw age number into four broad categories.
+- Result strings are hardcoded English; there are no translations or accessibility-focused result components beyond the standard Material widgets.
+- No data is persisted between launches.
+- The application id and namespace are still the starter project's `com.example.agegroupapp`.
+- Only generated example tests are present and there is no license file.
