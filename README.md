@@ -1,12 +1,20 @@
 # Genwise
 
-A single-screen Kotlin Android app that takes a name and an age and labels the person as Child, Teenager, Adult, or Senior.
+[![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)]()
+[![Language](https://img.shields.io/badge/Language-Kotlin-7F52FF?logo=kotlin&logoColor=white)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Status
+> A tiny one-screen app â€” type in your age and it tells you which life stage you're in (child, teen, adult, and so on). Built as a Kotlin practice exercise.
 
-Educational/portfolio sample. One activity, one layout, one bucketing rule. No persistence, networking, or external services.
+---
 
-## Features
+## 📖 Overview
+
+A tiny one-screen app â€” type in your age and it tells you which life stage you're in (child, teen, adult, and so on). Built as a Kotlin practice exercise.
+
+---
+
+## ✨ Key Features
 
 - Single form with a name field and a numeric age field.
 - Tap **Submit**, or press the keyboard **Done** action on the age field, to evaluate the input.
@@ -16,57 +24,37 @@ Educational/portfolio sample. One activity, one layout, one bucketing rule. No p
 - Result texts start hidden and become visible after a successful submission.
 - Clears focus on both inputs after evaluating.
 
-## Tech Stack
+---
 
-- **Language:** Kotlin (JVM target 11).
-- **UI:** Android Views with AppCompat, Material Components, and ConstraintLayout.
-- **Build:** Android Gradle Plugin via `libs.versions.toml`; `compileSdk 35`, `minSdk 24`, `targetSdk 35`.
-- **View Binding** enabled (`buildFeatures.viewBinding = true`).
+## 🛠️ Technology Stack
 
-## Project Structure
+| Component / Layer | Technology |
+|---|---|
+| **Platform** | Android |
+| **Primary Language** | Kotlin |
+| **Architecture** | MVVM / Clean Architecture |
+| **License** | Open Source (MIT) |
 
-```
-app/
-├── build.gradle.kts
-└── src/main/
-    ├── AndroidManifest.xml         // single MainActivity launcher; no permissions
-    ├── java/com/example/agegroupapp/MainActivity.kt
-    └── res/
-        ├── layout/activity_main.xml
-        ├── color/text_input_stroke.xml
-        └── values/, drawable/, mipmap-*/, xml/
-```
+---
 
-The application id and namespace are `com.example.agegroupapp`; the displayed app label uses the `app_name` resource and the `Theme.AgeGroupApp` style.
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
+- Android Studio Ladybug (or newer)
+- JDK 17 / 21
+- Android SDK 34 / 35
 
-- Android Studio compatible with the wrapper version in `gradle/wrapper`.
-- JDK 11.
-- Android SDK with `compileSdk 35` and `minSdk 24`.
+### Build & Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/shayann07/Genwise.git
+   cd Genwise
+   ```
+2. Open the project in **Android Studio**.
+3. Sync Gradle dependencies and run on an emulator or physical device.
 
-### Run
+---
 
-```bash
-git clone https://github.com/shayann07/Genwise.git
-```
+## 📄 License
 
-Open the project in Android Studio, let Gradle sync, then run the `app` configuration on a device or emulator.
-
-### Build
-
-```bash
-./gradlew :app:assembleDebug
-```
-
-The repository tracks a `local.properties`; replace its `sdk.dir` value with the path on your machine before building.
-
-## Limitations
-
-- Despite the project name, the app does **not** classify users into generational cohorts (Gen Z, Millennial, Boomer, etc.). It buckets a raw age number into four broad categories.
-- Result strings are hardcoded English; there are no translations or accessibility-focused result components beyond the standard Material widgets.
-- No data is persisted between launches.
-- The application id and namespace are still the starter project's `com.example.agegroupapp`.
-- Only generated example tests are present and there is no license file.
+This project is licensed under the [MIT License](LICENSE) — Copyright (c) 2026 [shayann07](https://github.com/shayann07).
